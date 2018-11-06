@@ -45,7 +45,7 @@ $(document).ready(function () {
 			topBar.empty()
 			const assignments = []
 
-			$('.assignment:not(.hidden-by-date)').each(function () {
+			$('.assignment:visible').each(function () {
 				const detailsMatch = $(this).find('.details').text()
 					.match(/Station : ([A-Za-zàâçéèêëîïôûùüÿñæœÀÂÇÉÈÊËÎÏÔÛÙÜŸÑÆŒ:' /-]+)\(Local (St-Michel|Frontenac)\)( FROID\/COLD)?( ?\*(\*\*)?)? on ((Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday), (January|February|March|April|May|June|July|August|September|October|November|December)\s\d{1,2},\s\d{4})\s (.*)/)
 
