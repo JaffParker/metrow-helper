@@ -38,7 +38,7 @@ $(document).ready(function () {
 	if (document.location.href.includes('schedule')) {
 		const topBar = $('<div />')
 		$('.assignment-filter').after(topBar)
-		$('#date-filter').change(filterAndDisplayAssignments)
+		$('#date-filter, #filter-location, [name=filter-publisher]').change(filterAndDisplayAssignments)
 		filterAndDisplayAssignments()
 
 		function filterAndDisplayAssignments() {
@@ -63,7 +63,8 @@ $(document).ready(function () {
 				const flexContainer = $('<div />').css({
 					display: 'flex',
 					'align-items': 'flex-start',
-					'flex-wrap': 'wrap'
+					'flex-wrap': 'nowrap',
+					'overflow-x': 'auto'
 				})
 
 				topBar.append(dayContainer)
@@ -71,7 +72,6 @@ $(document).ready(function () {
 				dayContainer.append(flexContainer)
 
 				_.forIn(assgmts, (ass, station) => {
-					console.log(ass)
 					const stationContainer = $('<div />').css({
 						padding: '10px'
 					})
