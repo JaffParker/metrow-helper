@@ -1,3 +1,11 @@
+function sortByKeys(obj) {
+	const sorted = {}
+	_.keys(obj).sort().forEach(key => {
+		sorted[key] = obj[key]
+	})
+	return sorted
+}
+
 $(document).ready(function () {
 	if (document.location.href.includes('assignment')) {
 		const optionsBar = $('<div />')
@@ -57,7 +65,7 @@ $(document).ready(function () {
 				})
 			})
 
-			const assignmentsByDateAndStation = _.mapValues(_.groupBy(assignments, 'date'), ass => _.groupBy(ass, 'station'))
+			const assignmentsByDateAndStation = _.mapValues(_.groupBy(assignments, 'date'), ass => sortByKeys(_.groupBy(ass, 'station')))
 			_.forIn(assignmentsByDateAndStation, (assgmts, date) => {
 				const dayContainer = $('<div />').css({ padding: '15px' })
 				const flexContainer = $('<div />').css({
